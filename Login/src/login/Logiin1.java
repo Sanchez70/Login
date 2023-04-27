@@ -53,7 +53,6 @@ public class Logiin1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        fSLabel1 = new LIB.FSLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -63,23 +62,16 @@ public class Logiin1 extends javax.swing.JFrame {
         fSButtonMD1 = new LIB.FSButtonMD();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         fSButtonMD2 = new LIB.FSButtonMD();
+        fSLabel3 = new LIB.FSLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.setForeground(new java.awt.Color(153, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        fSLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        fSLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        fSLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/edificio.jpg"))); // NOI18N
-        fSLabel1.setText("");
-        fSLabel1.setToolTipText("");
-        fSLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        fSLabel1.setLineColor(new java.awt.Color(204, 204, 204));
-        jPanel1.add(fSLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 530, 450));
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -93,7 +85,7 @@ public class Logiin1 extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/logo desenfocado4.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 960, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 890, -1));
 
         jLabel5.setFont(new java.awt.Font("SimSun", 0, 10)); // NOI18N
         jLabel5.setText("Restablacer Contraseña");
@@ -104,7 +96,7 @@ public class Logiin1 extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, 20));
 
         contra.setText("passwordFieldRoundBackground1");
         contra.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -131,7 +123,7 @@ public class Logiin1 extends javax.swing.JFrame {
                 fSButtonMD1ActionPerformed(evt);
             }
         });
-        jPanel1.add(fSButtonMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 150, 30));
+        jPanel1.add(fSButtonMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 150, 30));
         jPanel1.add(panelCurves1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 160));
 
         fSButtonMD2.setBackground(new java.awt.Color(0, 204, 204));
@@ -142,21 +134,16 @@ public class Logiin1 extends javax.swing.JFrame {
                 fSButtonMD2ActionPerformed(evt);
             }
         });
-        jPanel1.add(fSButtonMD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 150, 30));
+        jPanel1.add(fSButtonMD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 150, 30));
+
+        fSLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/edificio.jpg"))); // NOI18N
+        fSLabel3.setToolTipText("");
+        jPanel1.add(fSLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 580, 490));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 170, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 170, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 842, 552));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,7 +215,7 @@ public class Logiin1 extends javax.swing.JFrame {
     private org.edisoncor.gui.passwordField.PasswordFieldRoundBackground contra;
     private LIB.FSButtonMD fSButtonMD1;
     private LIB.FSButtonMD fSButtonMD2;
-    private LIB.FSLabel fSLabel1;
+    private LIB.FSLabel fSLabel3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
