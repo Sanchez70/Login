@@ -129,6 +129,11 @@ public class Logiin1 extends javax.swing.JFrame {
         fSButtonMD2.setBackground(new java.awt.Color(0, 204, 204));
         fSButtonMD2.setText("INICIAR SESIÓN");
         fSButtonMD2.setColorNormal(new java.awt.Color(0, 204, 204));
+        fSButtonMD2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fSButtonMD2MouseClicked(evt);
+            }
+        });
         fSButtonMD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fSButtonMD2ActionPerformed(evt);
@@ -175,6 +180,14 @@ public class Logiin1 extends javax.swing.JFrame {
        nueva.setVisible(true);
        dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void fSButtonMD2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSButtonMD2MouseClicked
+        try {
+            iniciar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Logiin1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_fSButtonMD2MouseClicked
 
     /**
      * @param args the command line arguments

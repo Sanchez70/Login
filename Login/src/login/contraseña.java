@@ -9,7 +9,10 @@ import clases.Login;
 import clases.usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import rojerusan.RSNotifyAnimated;
 
 /**
  *
@@ -24,6 +27,19 @@ public class contraseña extends javax.swing.JFrame {
      */
     public contraseña() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    }
+
+    public static void success(String actividad, String mensaje) {
+        new rojerusan.RSNotifyAnimated(actividad, mensaje,
+                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.RightLeft,
+                RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+    }
+
+    public static void error(String actividad, String mensaje) {
+        new rojerusan.RSNotifyAnimated(actividad, mensaje,
+                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
     }
 
     public void restablecer() throws SQLException {
@@ -32,10 +48,15 @@ public class contraseña extends javax.swing.JFrame {
         if (contenedor.next()) {
             usuario nuevo1 = new usuario();
             nuevo1.setUsuario(usu1.getText());
-//            nuevo1.setContra(contra1.getText().toString());
+            nuevo1.setContra(contra1.getText().toString());
             nuevo1.Modificar();
+            success("USUARIO ENCONTRADO", "CONTRASEÑA ACTUALIZADA CORRECTAMENTE");
+            Logiin1 nuevo = new Logiin1();
+            nuevo.setVisible(true);
+            dispose();
+
         } else {
-            JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO");
+            error("USUARIO INCORRECTO", "NO SE PUEDE ACTUALIZAR LA CONTRASEÑA");
         }
     }
 
@@ -50,22 +71,27 @@ public class contraseña extends javax.swing.JFrame {
 
         res = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        usu1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         fSButtonMD1 = new LIB.FSButtonMD();
         fSButtonMD2 = new LIB.FSButtonMD();
         contra1 = new org.edisoncor.gui.passwordField.PasswordFieldRoundBackground();
+        rSLabelImage1 = new necesario.RSLabelImage();
+        jLabel1 = new javax.swing.JLabel();
+        usu1 = new org.edisoncor.gui.textField.TextFieldRoundBackground();
+        panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        res.setBackground(new java.awt.Color(204, 204, 204));
         res.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel8.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel8.setText("Usuario:");
-        res.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
-        res.add(usu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 160, 20));
+        res.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel10.setText("contraseña:");
-        res.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        res.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
         fSButtonMD1.setText("Guardar");
         fSButtonMD1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,35 +104,70 @@ public class contraseña extends javax.swing.JFrame {
                 fSButtonMD1ActionPerformed(evt);
             }
         });
-        res.add(fSButtonMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 120, 30));
+        res.add(fSButtonMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 170, 30));
 
         fSButtonMD2.setText("Salir");
-        res.add(fSButtonMD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 90, 30));
+        fSButtonMD2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fSButtonMD2ActionPerformed(evt);
+            }
+        });
+        res.add(fSButtonMD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 180, 30));
 
         contra1.setText("passwordFieldRoundBackground1");
-        res.add(contra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 160, 30));
+        res.add(contra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 190, 30));
+
+        rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/candado.png"))); // NOI18N
+        res.add(rSLabelImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/logo desenfocado4.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        res.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, -1));
+
+        usu1.setFont(new java.awt.Font("Arial Nova Light", 0, 14)); // NOI18N
+        usu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usu1ActionPerformed(evt);
+            }
+        });
+        res.add(usu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 190, 30));
+        res.add(panelCurves1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(res, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(res, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(res, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void fSButtonMD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fSButtonMD1ActionPerformed
-        // TODO add your handling code here:
+        try {
+            restablecer();
+        } catch (SQLException ex) {
+            Logger.getLogger(contraseña.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_fSButtonMD1ActionPerformed
 
     private void fSButtonMD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSButtonMD1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_fSButtonMD1MouseClicked
+
+    private void usu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usu1ActionPerformed
+
+    private void fSButtonMD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fSButtonMD2ActionPerformed
+        Logiin1 nuevo = new Logiin1();
+        nuevo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_fSButtonMD2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,9 +208,16 @@ public class contraseña extends javax.swing.JFrame {
     private org.edisoncor.gui.passwordField.PasswordFieldRoundBackground contra1;
     private LIB.FSButtonMD fSButtonMD1;
     private LIB.FSButtonMD fSButtonMD2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel8;
+    private org.edisoncor.gui.panel.PanelCurves panelCurves1;
+    private necesario.RSLabelImage rSLabelImage1;
     private javax.swing.JPanel res;
-    private javax.swing.JTextField usu1;
+    private org.edisoncor.gui.textField.TextFieldRoundBackground usu1;
     // End of variables declaration//GEN-END:variables
+
+    private void Restablecer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

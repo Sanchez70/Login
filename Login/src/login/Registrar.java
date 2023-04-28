@@ -229,7 +229,11 @@ public class Registrar extends javax.swing.JFrame {
         if (cedula.getText().equals("") && nombre.getText().equals("") && apellido.getText().equals("") && edad.getText().equals("") && contra.getText().equals("") && correo.getText().equals("") && telefono.getText().equals("") && usuario.getText().equals("")) {
             error("ERROR", "EXISTEN CAMPOS VACIOS");
         } else {
-            // registrar();
+            try {
+                registrar();
+            } catch (SQLException ex) {
+                Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+            }
             success("REGISTRO", "REGISTRO REALIZADO DE MANERA EXITOSA");
             Logiin1 log = new Logiin1();
             log.setVisible(true);
