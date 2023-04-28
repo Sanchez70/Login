@@ -5,6 +5,7 @@
  */
 package login;
 
+import clases.Login;
 import clases.usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,17 +17,20 @@ import javax.swing.JOptionPane;
  */
 public class contraseña extends javax.swing.JFrame {
 
+    Login conexion = new Login();
+
     /**
      * Creates new form contraseña
      */
     public contraseña() {
         initComponents();
     }
-    public void restablecer() throws SQLException{
-         String sql = "SELECT  usuario FROM public.usuarios where usuario='" + usu1.getText()+"'";
+
+    public void restablecer() throws SQLException {
+        String sql = "SELECT  usuario FROM public.usuarios where usuario='" + usu1.getText() + "'";
         ResultSet contenedor = conexion.Consulta(sql);
         if (contenedor.next()) {
-            usuario nuevo1= new usuario();
+            usuario nuevo1 = new usuario();
             nuevo1.setUsuario(usu1.getText());
 //            nuevo1.setContra(contra1.getText().toString());
             nuevo1.Modificar();
@@ -34,6 +38,7 @@ public class contraseña extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO");
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +68,11 @@ public class contraseña extends javax.swing.JFrame {
         res.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         fSButtonMD1.setText("Guardar");
+        fSButtonMD1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fSButtonMD1MouseClicked(evt);
+            }
+        });
         fSButtonMD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fSButtonMD1ActionPerformed(evt);
@@ -93,6 +103,10 @@ public class contraseña extends javax.swing.JFrame {
     private void fSButtonMD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fSButtonMD1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fSButtonMD1ActionPerformed
+
+    private void fSButtonMD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSButtonMD1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fSButtonMD1MouseClicked
 
     /**
      * @param args the command line arguments

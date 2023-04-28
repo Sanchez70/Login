@@ -24,7 +24,7 @@ public class Login {
     String url = "jdbc:postgresql://localhost:5432/login";
     String user = "postgres";
     //TIENE QUE PONER SU CONTRASEÑA
-    String password = "1234";
+    String password = "leo123";
     Statement st;
 
     public Login() {

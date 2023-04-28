@@ -44,6 +44,12 @@ public class Registrar extends javax.swing.JFrame {
                 RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
     }
 
+    public static void error(String actividad, String mensaje) {
+        new rojerusan.RSNotifyAnimated(actividad, mensaje,
+                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.RightLeft,
+                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,78 +77,131 @@ public class Registrar extends javax.swing.JFrame {
         telefono = new javax.swing.JTextField();
         usuario = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         contra = new javax.swing.JPasswordField();
+        jLabel13 = new javax.swing.JLabel();
+        panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
+        panelCurves2 = new org.edisoncor.gui.panel.PanelCurves();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("REGISTRAR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/regis (1).png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 160, 120));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Contraseña:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Cedula:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Nombre:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Apellido:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Edad:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Correo:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Telefono:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Usuario:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, -1, -1));
-        jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 140, -1));
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 140, -1));
-        jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 140, -1));
-        jPanel1.add(edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 60, -1));
-        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 140, -1));
-        jPanel1.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 140, -1));
-        jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 140, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, -1));
+        jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 180, 30));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 180, 30));
+        jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 180, 30));
+        jPanel1.add(edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 60, 30));
 
-        jLabel10.setText("REGISTRAR");
+        correo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                correoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 180, 30));
+        jPanel1.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 180, 30));
+        jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 180, 30));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/re2 (1).png"))); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, -1, -1));
-
-        jLabel11.setText("REGRESAR");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 70, 60));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/logo desenfocado4.png"))); // NOI18N
         jLabel12.setText("jLabel12");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, -1));
 
-        contra.setText("jPasswordField1");
-        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 140, -1));
+        contra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 180, 30));
+
+        jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/iniciar.png"))); // NOI18N
+        jLabel13.setText("REGISTRARSE");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+
+        panelCurves1.setBackground(new java.awt.Color(0, 51, 51));
+        panelCurves1.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel1.add(panelCurves1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
+        jPanel1.add(panelCurves2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 700, 50));
+
+        jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setText("REGISTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 100, -1));
+
+        jButton2.setBackground(new java.awt.Color(0, 204, 204));
+        jButton2.setText("RETORNAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, -1, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/FLEE (1).png"))); // NOI18N
+        jLabel11.setText("jLabel11");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -150,13 +209,37 @@ public class Registrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-//        try {
-//            registrar();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        success("hola ","hola");
+
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_correoActionPerformed
+
+    private void contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contraActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (cedula.getText().equals("") && nombre.getText().equals("") && apellido.getText().equals("") && edad.getText().equals("") && contra.getText().equals("") && correo.getText().equals("") && telefono.getText().equals("") && usuario.getText().equals("")) {
+            error("ERROR", "EXISTEN CAMPOS VACIOS");
+        } else {
+            // registrar();
+            success("REGISTRO", "REGISTRO REALIZADO DE MANERA EXITOSA");
+            Logiin1 log = new Logiin1();
+            log.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        success("REGRESAR AL MENU", "REGRESO REALIZADO DE MANERA EXITOSA");
+            Logiin1 log = new Logiin1();
+            log.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,10 +282,13 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JPasswordField contra;
     private javax.swing.JTextField correo;
     private javax.swing.JTextField edad;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -213,6 +299,8 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;
+    private org.edisoncor.gui.panel.PanelCurves panelCurves1;
+    private org.edisoncor.gui.panel.PanelCurves panelCurves2;
     private javax.swing.JTextField telefono;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
