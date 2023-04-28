@@ -81,6 +81,7 @@ public class contraseña extends javax.swing.JFrame {
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         res.setBackground(new java.awt.Color(204, 204, 204));
         res.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +107,7 @@ public class contraseña extends javax.swing.JFrame {
         });
         res.add(fSButtonMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 170, 30));
 
-        fSButtonMD2.setText("Salir");
+        fSButtonMD2.setText("CANCELAR");
         fSButtonMD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fSButtonMD2ActionPerformed(evt);

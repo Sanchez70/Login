@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import rojerusan.RSNotifyAnimated;
 
 /**
  *
@@ -23,25 +24,36 @@ public class Logiin1 extends javax.swing.JFrame {
      * Creates new form Logiin1
      */
     Login conexion = new Login();
-
+    
     public Logiin1() {
         initComponents();
         this.setLocationRelativeTo(null);
-       
+        
     }
-
+    
     public void iniciar() throws SQLException {
         String sql = "SELECT  usuario, contrasena FROM public.usuarios where usuario='" + usu.getText() + "' and contrasena='" + contra.getText() + "';";
         ResultSet contenedor = conexion.Consulta(sql);
         if (contenedor.next()) {
-            JOptionPane.showMessageDialog(this, "INICIO DE SESION CORRECTO");
+            success("INICIO CORRECTO", "USUARIO Y CONTRASEÑA CORRECTOS");
+            
         } else {
-            JOptionPane.showMessageDialog(this, "CONTRASEÑA O USUARIO INCORRECTO");
+            error("INICIO DE SESION", "USUARIO Y CONTRASEÑA INCORRECTO");
+            
         }
     }
 
-
+    public static void success(String actividad, String mensaje) {
+        new rojerusan.RSNotifyAnimated(actividad, mensaje,
+                9, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.RightLeft,
+                RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+    }
     
+    public static void error(String actividad, String mensaje) {
+        new rojerusan.RSNotifyAnimated(actividad, mensaje,
+                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.RightLeft,
+                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,8 +76,10 @@ public class Logiin1 extends javax.swing.JFrame {
         fSButtonMD2 = new LIB.FSButtonMD();
         fSLabel3 = new LIB.FSLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        fSButtonMD3 = new LIB.FSButtonMD();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -98,11 +112,20 @@ public class Logiin1 extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, 20));
 
-        contra.setText("passwordFieldRoundBackground1");
         contra.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        contra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contraMouseClicked(evt);
+            }
+        });
         contra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraActionPerformed(evt);
+            }
+        });
+        contra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contraKeyTyped(evt);
             }
         });
         jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 190, 30));
@@ -148,6 +171,15 @@ public class Logiin1 extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 170, 20));
 
+        fSButtonMD3.setText("SALIR");
+        fSButtonMD3.setColorNormal(new java.awt.Color(255, 0, 0));
+        fSButtonMD3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fSButtonMD3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(fSButtonMD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 80, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 842, 552));
 
         pack();
@@ -170,15 +202,15 @@ public class Logiin1 extends javax.swing.JFrame {
     }//GEN-LAST:event_fSButtonMD2ActionPerformed
 
     private void fSButtonMD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fSButtonMD1ActionPerformed
-       Registrar nuevo= new Registrar();
-       nuevo.setVisible(true);
-       dispose();
+        Registrar nuevo = new Registrar();
+        nuevo.setVisible(true);
+        dispose();
     }//GEN-LAST:event_fSButtonMD1ActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       contraseña nueva = new contraseña();
-       nueva.setVisible(true);
-       dispose();
+        contraseña nueva = new contraseña();
+        nueva.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void fSButtonMD2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSButtonMD2MouseClicked
@@ -188,6 +220,18 @@ public class Logiin1 extends javax.swing.JFrame {
             Logger.getLogger(Logiin1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_fSButtonMD2MouseClicked
+
+    private void contraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraMouseClicked
+        contra.setText("");
+    }//GEN-LAST:event_contraMouseClicked
+
+    private void contraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraKeyTyped
+        
+    }//GEN-LAST:event_contraKeyTyped
+
+    private void fSButtonMD3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSButtonMD3MouseClicked
+       System.exit(0);
+    }//GEN-LAST:event_fSButtonMD3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -228,6 +272,7 @@ public class Logiin1 extends javax.swing.JFrame {
     private org.edisoncor.gui.passwordField.PasswordFieldRoundBackground contra;
     private LIB.FSButtonMD fSButtonMD1;
     private LIB.FSButtonMD fSButtonMD2;
+    private LIB.FSButtonMD fSButtonMD3;
     private LIB.FSLabel fSLabel3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

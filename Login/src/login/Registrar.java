@@ -22,6 +22,7 @@ public class Registrar extends javax.swing.JFrame {
      */
     public Registrar() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public void registrar() throws SQLException {
@@ -60,7 +61,6 @@ public class Registrar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -82,20 +82,16 @@ public class Registrar extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         panelCurves2 = new org.edisoncor.gui.panel.PanelCurves();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fSButtonMD1 = new LIB.FSButtonMD();
+        fSButtonMD2 = new LIB.FSButtonMD();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/regis (1).png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 160, 120));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Contraseña:");
@@ -162,39 +158,38 @@ public class Registrar extends javax.swing.JFrame {
         jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 180, 30));
 
         jLabel13.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/iniciar.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/regis (1).png"))); // NOI18N
         jLabel13.setText("REGISTRARSE");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
 
         panelCurves1.setBackground(new java.awt.Color(0, 51, 51));
         panelCurves1.setForeground(new java.awt.Color(255, 51, 51));
         jPanel1.add(panelCurves1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
         jPanel1.add(panelCurves2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 700, 50));
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setText("REGISTRAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 100, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 204, 204));
-        jButton2.setText("RETORNAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, -1, -1));
-
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/FLEE (1).png"))); // NOI18N
         jLabel11.setText("jLabel11");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 70, -1));
 
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, -1, -1));
+        fSButtonMD1.setBackground(new java.awt.Color(51, 153, 255));
+        fSButtonMD1.setText("REGISTRAR");
+        fSButtonMD1.setColorNormal(new java.awt.Color(51, 153, 255));
+        fSButtonMD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fSButtonMD1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fSButtonMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 100, 20));
+
+        fSButtonMD2.setBackground(new java.awt.Color(51, 153, 255));
+        fSButtonMD2.setText("REGRESAR");
+        fSButtonMD2.setColorNormal(new java.awt.Color(51, 153, 255));
+        fSButtonMD2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fSButtonMD2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fSButtonMD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 550, 90, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,7 +219,7 @@ public class Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_contraActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void fSButtonMD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fSButtonMD1ActionPerformed
         // TODO add your handling code here:
         if (cedula.getText().equals("") && nombre.getText().equals("") && apellido.getText().equals("") && edad.getText().equals("") && contra.getText().equals("") && correo.getText().equals("") && telefono.getText().equals("") && usuario.getText().equals("")) {
             error("ERROR", "EXISTEN CAMPOS VACIOS");
@@ -239,15 +234,15 @@ public class Registrar extends javax.swing.JFrame {
             log.setVisible(true);
             dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_fSButtonMD1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void fSButtonMD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fSButtonMD2ActionPerformed
         // TODO add your handling code here:
-        success("REGRESAR AL MENU", "REGRESO REALIZADO DE MANERA EXITOSA");
+                success("REGRESAR AL MENU", "REGRESO REALIZADO DE MANERA EXITOSA");
             Logiin1 log = new Logiin1();
             log.setVisible(true);
             dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_fSButtonMD2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,9 +285,8 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JPasswordField contra;
     private javax.swing.JTextField correo;
     private javax.swing.JTextField edad;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private LIB.FSButtonMD fSButtonMD1;
+    private LIB.FSButtonMD fSButtonMD2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -306,7 +300,6 @@ public class Registrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nombre;
     private org.edisoncor.gui.panel.PanelCurves panelCurves1;
     private org.edisoncor.gui.panel.PanelCurves panelCurves2;
